@@ -1,0 +1,67 @@
+body{
+  background-color: #E7E7E7;
+}
+
+.form{
+  margin-top: 155px;
+}
+
+.adminForm{
+  height: 150px;
+  width: 25%;
+  margin:auto;
+  text-align: center;
+  color: black;
+}
+
+.admin_name, .admin_sur, .adminName, .adminPass{
+  display: block;
+  margin:auto;
+  margin-top: 5px;
+  height: 25px;
+  width: 100%;
+  border: none;
+  font-size: 12pt;
+  background-color: #F5F5F5;
+}
+
+.admin_name:focus, .admin_sur:focus, .adminName:focus, .adminPass:focus{
+  outline: none;
+}
+
+.register{
+  margin:auto;
+  margin-top: 5px;
+  height: 5vh;
+  width: 101.2%;
+  border: none;
+  font-size: 12pt;
+  cursor: pointer;
+  background-color:#4D4DFF;
+}
+
+.register:hover{
+  border: 2px solid #4D4DFF;
+  background-color:#E7E7E7;
+}
+
+.register:active{
+  background-color:#4D4DFF;
+}
+
+.error{
+  margin-top: 3vh;
+  text-align: center;
+  font-size: 14pt;
+  color: #A62C2A;
+}
+
+.in{
+  margin-top: 26vh;
+  text-align: center;
+}
+
+.in a{
+  color:black;
+  font-size: 13pt;
+}

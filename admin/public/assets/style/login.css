@@ -1,0 +1,70 @@
+body{
+  background-color: #E7E7E7;
+}
+
+.form{
+  margin-top: 155px;
+}
+
+.adminForm{
+  height: 150px;
+  width: 25%;
+  margin:auto;
+  text-align: center;
+  color: black;
+}
+
+.adminName, .adminPass{
+  display: block;
+  margin:auto;
+  margin-top: 5px;
+  height: 25px;
+  width: 100%;
+  border: none;
+  font-size: 12pt;
+}
+
+.adminName:focus, .adminPass:focus{
+  outline:none;
+}
+
+.adminName:active, .adminPass:active{
+
+}
+
+.login{
+  margin:auto;
+  margin-top: 5px;
+  height: 5vh;
+  width: 101.2%;
+  border: none;
+  font-size: 12pt;
+  cursor: pointer;
+  background-color:#4D4DFF;
+}
+
+.login:hover{
+  border: 2px solid #4D4DFF;
+  background-color:#E7E7E7;
+}
+
+.login:active{
+  background-color:#4D4DFF;
+}
+
+.error{
+  margin-top: 3vh;
+  text-align: center;
+  font-size: 14pt;
+  color: #A62C2A;
+}
+
+.register a{
+  color: black;
+  font-size: 13pt;
+}
+
+.register{
+  text-align: center;
+  margin-top: 20vh;
+}
