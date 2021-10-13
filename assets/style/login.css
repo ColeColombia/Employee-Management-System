@@ -1,5 +1,5 @@
 body{
-  background-color: #222222;
+  background-color: #E7E7E7;
   overflow: hidden;
 }
 
@@ -12,7 +12,7 @@ body{
   width: 25%;
   margin:auto;
   text-align: center;
-  color: white;
+  color: black;
 }
 
 .adminName, .adminPass{
@@ -31,12 +31,13 @@ body{
   height: 5vh;
   width: 101.2%;
   border: none;
-  font-size: 12pt;
+  font-size: 14pt;
   cursor: pointer;
-  background-color:#63CCC8;
+  background-color:#4D4DFF;
 }
 
 .error{
+  margin-top: 16vh;
   text-align: center;
   font-size: 14pt;
   color: #A62C2A;
