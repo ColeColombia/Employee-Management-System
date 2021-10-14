@@ -713,3 +713,15 @@ font-weight: bold;
   background-color: #E7E7E7;
   color: black;
 }
+
+.leave_response_r{
+  background-color: #F5F5F5;
+  overflow: auto;
+  margin:9% 16.5%;
+  width: 69%;
+  height: 250px;
+  position: fixed;
+  top:0;
+  z-index: 2;
+  display: block;
+}

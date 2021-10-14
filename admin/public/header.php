@@ -233,4 +233,13 @@ $admin_info = get_admin_id();
 
 </div>
 
+<!--Leave request/response-->
+<div class="leave_response_r">
+  <div>
+<span class="leave_responseClose">&times;</span>
+</div>
+
+</div>
+<!---->
+
 </div>
