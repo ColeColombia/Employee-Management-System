@@ -3,6 +3,7 @@ $(document).ready(function(){
 
 $(".department").click(()=>{
   $("#popUpWindow").css("display", "block")
+  $(".view_employees_popup").css("display", "none")
   $(".occupation_popup").css("display", "none")
   $(".leave_popup").css("display", "none")
   $("#employee-popup").css("display", "none")
@@ -15,6 +16,7 @@ $(".closeButton").click(()=>{
 
 $(".remove_department").click(()=>{
   $(".delete_department").css("display", "block")
+  $(".view_employees_popup").css("display", "none")
   $(".occupation_popup").css("display", "none")
   $(".leave_popup").css("display", "none")
   $("#employee-popup").css("display", "none")
@@ -45,6 +47,7 @@ $(".close_delete_dep").click(()=>{
 //add occupations
 $(".add_occupation").click(()=>{
   $(".occupation_popup").css("display", "block")
+  $(".view_employees_popup").css("display", "none")
   $(".delete_department").css("display", "none")
   $(".leave_popup").css("display", "none")
   $("#employee-popup").css("display", "none")
@@ -59,6 +62,7 @@ $(".confirm_before_occu").click(()=>{
 //leave popUpWindow
 $(".add_leave_type").click(()=>{
   $(".leave_popup").css("display", "block")
+    $(".view_employees_popup").css("display", "none")
   $(".occupation_popup").css("display", "none")
   $("#employee-popup").css("display", "none")
   $("#popUpWindow").css("display", "none")
@@ -85,6 +89,7 @@ $(".close_occupation").click(()=>{
 
 $(".employee").click(()=>{
   $("#employee-popup").css("display", "block")
+  $(".view_employees_popup").css("display", "none")
   $("#popUpWindow").css("display", "none")
   $(".delete_department").css("display", "none")
 })
@@ -98,6 +103,7 @@ $(".closePopup").click(()=>{
 
 $(".leave_request").click(()=>{
  $(".leave_request_popup").css("display", "block")
+ $(".view_employees_popup").css("display", "none")
  $(".send_leave_info").css("display", "none")
 })
 
@@ -117,6 +123,20 @@ $(".leave_requests").click(()=>{
 
 $(".close_leave").click(()=>{
   $(".leave_request_popup").css("display", "none")
+})
+
+$(".view_employees").click(()=>{
+  $(".view_employees_popup").css("display", "block")
+  $(".occupation_popup").css("display", "none")
+  $("#employee-popup").css("display", "none")
+  $("#popUpWindow").css("display", "none")
+  $(".delete_department").css("display", "none")
+  $(".leave_request_popup").css("display", "none")
+
+})
+
+$(".close_emp_list").click(()=>{
+  $(".view_employees_popup").css("display", "none")
 })
 
 $(".subButton").click(()=>{

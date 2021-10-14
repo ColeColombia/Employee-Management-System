@@ -125,6 +125,7 @@ public function getOccupation(){
 
 <?php
 $crud = new Crud();
+
 function is_ajax_request() {
   return isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
     $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest';
@@ -157,7 +158,6 @@ if(is_ajax_request2()){
 
 if(is_ajax_request_3()){
   $leave_name = $_POST['leave_type'];
-  $crud = new Crud();
   $crud->insert_leave_type($leave_name);
 }
 
@@ -168,8 +168,19 @@ if(is_ajax_request_4()){
   $reason = $_POST['reason'];
   $status = 0;
   $emp_id = getUserId();
+  $count = $crud->countLeaves();
 
-  $crud->insert_into_emp_leave($emp_id['employee_id'], $leave_type, $leave_date, $reason, $status);
+  if($count > 0)
+  {
+    $crud->update_emp_leave($emp_id['employee_id'], $leave_type, $leave_date, $reason, $status);
+  }
+
+  else if($count == 0)
+  {
+    $crud->insert_into_emp_leave($emp_id['employee_id'], $leave_type, $leave_date, $reason, $status);
+  }
+
+
 }
 
 if(is_ajax_request_5()){

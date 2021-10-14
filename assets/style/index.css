@@ -39,7 +39,8 @@ font-weight: bold;
 
 .records{
   width: 85%;
-  margin-left:20.8%;
+  margin-left:5%;
+  margin-top: 2%;
 }
 
 .records div{
@@ -53,12 +54,12 @@ font-weight: bold;
 
 .employee_List{
   width: 85%;
-  margin-left: 20%;
+  margin-left: 5%;
 }
 
 .employee_List div{
-  background-color: #F5F5F5;
-  width: 100%;
+  background-color: #E7E7E7;
+  width: 97%;
   height: 12vh;
   margin:0.8%;
   overflow: hidden;
@@ -142,7 +143,7 @@ font-weight: bold;
   color: white;
   text-align: center;
   font-size: 11pt;
-  display: none;
+  display: block;
 }
 
 .notify img{
@@ -174,13 +175,13 @@ font-weight: bold;
   overflow: hidden;
 }
 
-.leave_request, .download_info, .department, .remove_department, .remove_employee, .departments, .add_leave_type, .add_occupation, .employee,.logout{
+.leave_request, .download_info, .department, .remove_department, .remove_employee, .departments, .add_leave_type, .add_occupation, .employee, .view_employees,.logout{
   height: 40px;
   margin-top: 0.5%;
   cursor: pointer;
 }
 
- .leave_request:hover, .download_info:hover, .department:hover, .remove_department:hover, .employee:hover, .remove_employee:hover, .departments:hover, .add_leave_type:hover, .add_occupation:hover, .logout:hover{
+ .leave_request:hover, .download_info:hover, .department:hover, .remove_department:hover, .employee:hover, .remove_employee:hover, .departments:hover, .add_leave_type:hover, .add_occupation:hover, .view_employees:hover, .logout:hover{
   border-left: 3px solid #4D4DFF;
   color: black;
   background-color: #E7E7E7;
@@ -837,4 +838,29 @@ font-weight: bold;
 .submit_request:hover{
   background-color: #E7E7E7;
   color: black;
+}
+
+.view_employees_popup
+{
+  background-color: #F5F5F5;
+  margin:5% 18%;
+  width: 80%;
+  height: 65%;
+  position: fixed;
+  top:0;
+  z-index: 2;
+  text-align: center;
+  display: none;
+}
+
+.close_emp_list{
+  font-size: 30pt;
+  float: right;
+  color: black;
+  margin-right: 3%;
+}
+
+.close_emp_list:hover{
+  cursor: pointer;
+  color:silver;
 }

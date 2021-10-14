@@ -142,9 +142,9 @@ load_occupations();
     <?php loadDepartments(); ?>
   </select>
   <select class="userPriviledge" id="priviledge" name="priviledge">
-  <option value="Low">Low</option>
-  <option value="Medium">Medium</option>
-  <option value="High">High</option>
+  <option value="LOW">Low</option>
+  <option value="MEDIUM">Medium</option>
+  <option value="HIGH">High</option>
   </select>
 <input class="employee-name" type="text" name="name" placeholder="name" required = "required">
 <input class="employee-sur" type="text" name="surname" placeholder="surname" required = "required">
@@ -220,7 +220,7 @@ Send leave Request
       <select id="leave-type" class="leaveType" name="selected_leave_type">
         <?php load_leaveTypes(); ?>
       </select>
-      <label for="leaveDate">Leave date</label>
+      <label for="leaveDate">Leave end date</label>
       <input id="leaveDate" class="leave_date" type="date" name="leave_date">
       <input class="submit_request" type="button" value="Send Request">
       </form>

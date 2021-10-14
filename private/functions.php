@@ -126,7 +126,7 @@ function showEmployees(){
   $pdo = connect();
   $data = $pdo->query("SELECT * FROM worker")->fetchAll();
   foreach ($data as $row) {
-    echo "<a href='" ."viewUser.php?user=" . $row['employee_id'] ."'><div><div><img src='".$row['picture']."'></div><div>" . $row['first_name'] .
+    echo "<a href='" ."viewUser.php?user=" . $row['employee_id'] ."'><div><div><img src='employee_images/".$row['picture']."'></div><div>" . $row['first_name'] .
     "</div><div>" .$row['second_name'] . "</div><div>" . $row['identity_num'] . "</div><div>". $row['tax_num'] ."</div></div></a>";
 }
 
@@ -167,7 +167,7 @@ function show_user_details($user){
 
     echo "<div class='worker'>
         <div class='emp_picture'>
-        <img src='../../employee_images/".$value['picture']."'>
+        <img src='employee_images/".$value['picture']."'>
         </div>
         <div class='emp_name'>
           <input type='text' name='' value='Name: ".$value['first_name']."' disabled>
@@ -235,8 +235,9 @@ function show_admin_medium(){
     <div class='employee'><img src='assets/images/person_add_black_24dp.svg'>
       <a>Add employee</a></div>
 
+      <div class='view_employees'><img src='assets/images/view_list_black_24dp.svg'>
+        <a>View employees</a></div>
     ";
-
 
 }
 
@@ -249,6 +250,27 @@ function show_admin_search(){
     </form>
     </div>";
 
+}
+
+function showEmployeeList()
+{
+  echo "<div class='view_employees_popup'>
+          <div>
+        <span class='close_emp_list'>&times;</span>
+        </div>
+
+        <h1>Employees</h1>
+
+        <div class='records'>
+          <div></div>
+          <div>Name</div>
+          <div>Surname</div>
+          <div>Employee id</div>
+          <div>Tax Number</div>
+
+        </div><div class='employee_List'>";
+        showEmployees();
+        echo "</div></div>";
 }
 
 function user_details($user){

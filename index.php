@@ -8,5 +8,7 @@ require_once("header.php");
 
  </div>
 
+<?php if($access == "Medium") showEmployeeList(); ?>
+
   </body>
 </html>
