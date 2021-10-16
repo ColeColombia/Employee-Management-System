@@ -96,7 +96,7 @@ font-weight: bold;
   color: black;
 }
 
-.searchUser, .heading, .notify{
+.searchUser, .heading{
   display: inline-block;
 }
 
@@ -126,42 +126,12 @@ font-weight: bold;
   vertical-align: middle;
 }
 
-.notify{
-  float: right;
-  margin-right: 3%;
-  border: 1px solid black;
-}
-
-.notificationCounter{
-  width: 15px;
-  border: 1px solid white;
-  height: 15px;
-  border-radius: 35px;
-  background-color: #63CCC8;
-  z-index: 2;
-  position: absolute;
-  color: white;
-  text-align: center;
-  font-size: 11pt;
-  display: block;
-}
-
-.notify img{
-  z-index: 1;
-  position: absolute;
-}
-
-.notify:hover{
-  cursor: pointer;
-}
-
 .secondHeading{
   margin-left: 17%;
   margin-top: 0.5%;
   font-size: 14pt;
   font-weight: normal;
 }
-
 
 .table{
   margin-top: 3.4%;
@@ -438,7 +408,7 @@ font-weight: bold;
   overflow: auto;
   margin:10% 28%;
   width: 50%;
-  height: 45%;
+  height: 50%;
   position: fixed;
   top:0;
   z-index: 2;
@@ -465,42 +435,19 @@ font-weight: bold;
   color: black;
 }
 
-.select_occu_dep, .create_occupation{
+.occupation_field, .create_occupation{
   display: block;
   margin:2.5%
 }
 
-.select_occu_dep{
-  width: 95%;
+.occupation_field{
+  width: 94%;
   height: 32px;
   border: none;
   background-color: #E7E7E7;
   font-size: 12pt;
   color: black;
-}
-
-.select_occu_dep:focus{
   outline: none;
-}
-
-.select_occu_dep:hover{
-  cursor: pointer;
-}
-
-.confirm_before_occu{
-  width: 55%;
-  height: 34px;
-  margin: auto;
-  border: none;
-  background-color: #4D4DFF;
-  font-size: 12pt;
-  color: #black;
-  cursor: pointer;
-}
-
-.confirm_before_occu:hover{
-  background-color: #E7E7E7;
-  color: black;
 }
 
 .create_occupation{
@@ -512,7 +459,6 @@ font-weight: bold;
   font-size: 12pt;
   color: #black;
   cursor: pointer;
-  display: none;
 }
 
 .create_occupation:hover{
@@ -520,6 +466,10 @@ font-weight: bold;
   color: black;
 }
 
+.create_occupation:active{
+  border: 3px solid #4D4DFF;
+  color: black;
+}
 
 /*Add employee*/
 .employee-window{

@@ -67,9 +67,9 @@ public function insert_leave_type($leave_type){
   $stmt->execute([$leave_type]);
 }
 
-public function countLeaves(){
-    $stmt = $this->connect->query("SELECT count(*) FROM emp_leave");
-    $stmt->execute();
+public function countLeaves($employee_id){
+    $stmt = $this->connect->prepare("SELECT count(*) FROM emp_leave WHERE employee_id=?");
+    $stmt->execute([$employee_id]);
     $count = $stmt->fetchColumn();
     return $count;
 }
@@ -85,6 +85,12 @@ public function insert_into_emp_leave($emp_id, $leave_type, $leave_date, $info, 
   $sql = 'INSERT INTO emp_leave( employee_id, leave_type, leave_date, info, leave_status ) VALUES(?,?,?,?,?)';
   $stmt = $this->connect->prepare($sql);
   $stmt->execute([$emp_id, $leave_type, $leave_date, $info, $leave_status]);
+}
+
+public function insert_into_emp_occupation($occupation){
+  $sql = 'INSERT INTO occupation( occupation ) VALUES(?)';
+  $stmt = $this->connect->prepare($sql);
+  $stmt->execute([$occupation]);
 }
 
 }

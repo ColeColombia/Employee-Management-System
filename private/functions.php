@@ -28,7 +28,7 @@ function checkIdenticalInput($input, $input2)
   $input  = sanitizeString($input);
   $input2 = sanitizeString($input2);
 
-  if (strcmp($input, $input2) == 0) {
+  if (strcasecmp($input, $input2) == 0) {
     return true;
   }
   else{
@@ -119,6 +119,17 @@ function loadDepartments(){
   echo "<option>" . $row['department_name'] . "</option>";
   }
 
+}
+
+function show_occupations()
+{
+  $pdo = connect();
+  $stmt = $pdo->query("SELECT * FROM occupation");
+  $occupation = $stmt->fetchAll();
+
+  foreach ($occupation as $key => $row) {
+  echo "<option>" . $row['occupation'] . "</option>";
+  }
 }
 
 function showEmployees(){
@@ -373,6 +384,11 @@ function loadLeaveRequest($employee_id){
       $status = "Approved";
     }
 
+    else if($row['leave_status'] == 2)
+    {
+      $status = "Declined";
+    }
+
   echo "<div class='emp_leave_list'>
         <div class='leave_type'>
           ".$row['leave_type']."
@@ -464,15 +480,9 @@ function load_occupations(){
   <div class='occupation_popup'>
   <span class='close_occupation'>&times;</span>
   <div class='occupation_content'>
-    <h2>Remove Department</h2>
-  <form class='' id='rev_form' action='private/userRegistration.php' method='post'>
-    <label for='select_occ_dep'>Select Department</label>
-  <select id='select_occ_dep' class='select_occu_dep' name=''>
-     ";
-
-  echo loadDepartments() . "
-  </select>
-  <button class='confirm_before_occu' type='button' name='button'>Add occupation</button>
+    <h2>Add occupations</h2>
+  <form class='' id='occ_form' action='private/userRegistration.php' method='post'>
+  <input class='occupation_field' type='text' name='occupation_name' placeholder='occupation' required = 'required'>
   <input class='create_occupation' type='button' value='Confirm occupation'>
   </form>
   </div>

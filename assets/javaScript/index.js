@@ -54,9 +54,23 @@ $(".add_occupation").click(()=>{
   $("#popUpWindow").css("display", "none")
 })
 
-$(".confirm_before_occu").click(()=>{
-  $(".create_occupation").css("display", "block")
-  $(".confirm_before_occu").css("display", "none")
+$(".create_occupation").click(()=>{
+  let form = document.querySelector("#occ_form");
+  let action = form.getAttribute("action");
+  let form_data = new FormData(form);
+
+  let xhr = new XMLHttpRequest();
+  xhr.open('POST', action, true);
+  xhr.setRequestHeader('X-Requested-With', 'ajaxOccupation');
+  xhr.onreadystatechange = function () {
+    if(xhr.readyState == 4 && xhr.status == 200) {
+      var result = xhr.responseText;
+      if(result){
+        alert("Occupation added successfully");
+      }
+    }
+  };
+  xhr.send(form_data);
 })
 
 //leave popUpWindow
@@ -152,7 +166,7 @@ $(".subButton").click(()=>{
     if(xhr.readyState == 4 && xhr.status == 200) {
       var result = xhr.responseText;
       if(result){
-        alert("Department add successfully");
+        alert("Department added successfully");
       }
     }
   };

@@ -126,7 +126,7 @@ font-weight: bold;
   color: black;
 }
 
-.searchUser, .heading, .notify{
+.searchUser, .heading{
   display: inline-block;
 }
 
@@ -156,35 +156,6 @@ font-weight: bold;
   vertical-align: middle;
 }
 
-.notify{
-  float: right;
-  margin-right: 3%;
-  border: 1px solid black;
-}
-
-.notificationCounter{
-  width: 15px;
-  border: 1px solid white;
-  height: 15px;
-  border-radius: 35px;
-  background-color: #63CCC8;
-  z-index: 2;
-  position: absolute;
-  color: white;
-  text-align: center;
-  font-size: 11pt;
-  display: none;
-}
-
-.notify img{
-  z-index: 1;
-  position: absolute;
-}
-
-.notify:hover{
-  cursor: pointer;
-}
-
 .secondHeading{
   margin-left: 17%;
   margin-top: 0.5%;
@@ -205,13 +176,13 @@ font-weight: bold;
   overflow: hidden;
 }
 
-.department, .remove_department, .add_leave_type, .add_occupation, .employee, .remove_employee, .departments, .logout{
+.department, .remove_department,.add_leave_type, .employee, .remove_employee, .employee_leave_response, .logout{
   height: 40px;
   margin-top: 0.5%;
   cursor: pointer;
 }
 
- .department:hover, .remove_department:hover, .add_leave_type:hover, .add_occupation:hover, .employee:hover, .remove_employee:hover, .departments:hover, .logout:hover{
+ .department:hover, .remove_department:hover, .add_leave_type:hover, .employee:hover, .remove_employee:hover, .employee_leave_response:hover, .logout:hover{
   border-left: 3px solid #4D4DFF;
   color: black;
   background-color: #E7E7E7;
@@ -385,11 +356,15 @@ font-weight: bold;
   font-size: 12pt;
   color: #black;
   cursor: pointer;
-  display: none;
 }
 
 .remove_button:hover{
   background-color: #E7E7E7;
+  color: black;
+}
+
+.remove_button:active{
+  border:2px solid #4D4DFF;
   color: black;
 }
 
@@ -493,7 +468,7 @@ font-weight: bold;
   color: black;
 }
 
-.select_occu_dep, .create_occupation{
+.select_occu_dep, .occupationName, .create_occupation{
   display: block;
   margin:2.5%
 }
@@ -513,6 +488,19 @@ font-weight: bold;
 
 .select_occu_dep:hover{
   cursor: pointer;
+}
+
+.occupationName{
+  width: 94%;
+  height: 32px;
+  border: none;
+  background-color: #E7E7E7;
+  font-size: 12pt;
+  color: black;
+}
+
+.occupationName:focus{
+  outline: none;
 }
 
 .confirm_before_occu{
@@ -719,9 +707,149 @@ font-weight: bold;
   overflow: auto;
   margin:9% 16.5%;
   width: 69%;
-  height: 250px;
+  height: 65vh;
   position: fixed;
   top:0;
   z-index: 2;
+  display: none;
+}
+
+.leave_responseClose{
+  font-size: 30pt;
+  float: right;
+  color: black;
+  margin-right: 3%;
+}
+
+.leave_responseClose:hover{
+  cursor: pointer;
+  color:silver;
+}
+
+.response_heading
+{
+  text-align: center;
+}
+
+.coloums_head
+{
+  text-align: center;
+  margin:1%;
+}
+
+.emp_id, .leaveType, .description_data, .approval_buttons
+{
+  display: inline-block;
+  font-size: 14pt;
+  width: 23%;
+}
+
+.response_data
+{
+  text-align: center;
+  margin:1%;
+}
+
+.emp_id_data, .type_of_leave, .leave_description, .approval_buttonss
+{
+  display: inline-block;
+  font-size: 14pt;
+  width: 23%;
+  background-color: #E7E7E7;
+  height: 4vh;
+  padding-top: 5px;
+}
+
+.approval_buttons .accept_leave
+{
+  height: 4vh;
+  width: 48%;
+  background-color: #86DC3D;
+  color: white;
+  border: none;
+  font-size: 13pt;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.approval_buttons .decline_leave
+{
+  background-color: #CF352E;
+  color: white;
+  border: none;
+  width: 48%;
+  font-size: 13pt;
+  height: 4vh;
+  cursor: pointer;
+}
+
+
+.remove_employee_popup{
+  background-color: #F5F5F5;
+  overflow: auto;
+  margin:10% 28%;
+  width: 50%;
+  height: 45%;
+  position: fixed;
+  top:0;
+  z-index: 2;
+  display: none;
+}
+
+.close_remove_employee{
+  font-size: 30pt;
+  float: right;
+  color: black;
+  margin-right: 3%;
+}
+
+.close_remove_employee:hover{
+  cursor: pointer;
+  color:silver;
+}
+
+.remove_employee_content{
+  margin: auto;
+  width: 75%;
+  margin-top: 75px;
+  text-align: center;
+  color: black;
+}
+
+.select_emp_rev, .rem_emp{
   display: block;
+  margin:2.5%
+}
+
+.select_emp_rev{
+  width: 95%;
+  height: 32px;
+  border: none;
+  background-color: #E7E7E7;
+  font-size: 12pt;
+  color: black;
+}
+
+.select_emp_rev:focus{
+  outline: none;
+}
+
+.select_emp_rev:hover{
+  cursor: pointer;
+}
+
+.rem_emp{
+  width: 55%;
+  height: 34px;
+  margin: auto;
+  border: none;
+  background-color: #4D4DFF;
+  font-size: 12pt;
+  color: #black;
+  cursor: pointer;
+}
+
+.rem_emp:hover{
+  background-color: #E7E7E7;
+  color: black;
 }

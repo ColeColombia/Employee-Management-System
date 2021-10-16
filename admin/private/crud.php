@@ -80,6 +80,20 @@ public function update_admin_picture($picture){
   $stmt->execute([$picture, $amin_id['admin_id']]);
 }
 
+public function deleteDepartMent($department)
+{
+  $sql = 'DELETE FROM department WHERE department_name=?';
+  $stmt = $this->connect->prepare($sql);
+  $stmt->execute([$department]);
+}
+
+public function deleteEmployee($employee_id)
+{
+  $sql = 'DELETE FROM worker WHERE identity_num=?';
+  $stmt = $this->connect->prepare($sql);
+  $stmt->execute([$employee_id]);
+}
+
 }
 
  ?>

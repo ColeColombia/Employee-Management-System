@@ -61,17 +61,14 @@ $admin_info = get_admin_id();
 
 <div class="adminTasks">
 
-<div class="department" style="font-family:"><img src="assets/images/add_black_24dp.svg">
+<div class="department" style="font-family:"><img src="assets/images/remove_black_24dp.svg">
 <a>Add department</a></div>
 
-<div class="remove_department" style="font-family:"><img src="assets/images/remove_black_24dp.svg">
+<div class="remove_department" style="font-family:"><img src="assets/images/add_black_24dp.svg">
 <a>Remove department</a></div>
 
 <div class="add_leave_type" style="font-family:"><img src="assets/images/add_black_24dp.svg">
 <a>Add leave types</a></div>
-
-<div class="add_occupation" style="font-family:"><img src="assets/images/add_black_24dp.svg">
-<a>Add occupations</a></div>
 
 <div class="employee"><img src="assets/images/person_add_black_24dp.svg">
   <a>Add employee</a></div>
@@ -79,8 +76,8 @@ $admin_info = get_admin_id();
   <div class="remove_employee"><img src="assets/images/person_remove_black_24dp.svg">
     <a>Remove employee</a></div>
 
-  <div class="departments"><img src="assets/images/corporate_fare_black_24dp.svg">
-  <a>Departments</a></div>
+    <div class="employee_leave_response"><img src="assets/images/pending_actions_black_24dp.svg">
+      <a>Leave Requests</a></div>
 
   <div class="logout"><img type="submit" src="assets/images/logout_black_24dp.svg">
   <a href="logout.php">Logout</a></div>
@@ -102,15 +99,6 @@ $admin_info = get_admin_id();
 
   <div class="heading">
   Admin
-  </div>
-
-  <div id="notification" class="notify">
-  <img src="assets/images/notifications_black_24dp.svg">
-
-  <div class="notificationCounter">
-
-  </div>
-
   </div>
 </div>
 
@@ -134,23 +122,6 @@ $admin_info = get_admin_id();
 </div>
 
 </div>
-
-<!--Remove department popup-->
-<div class="delete_department">
-<span class="close_delete_dep">&times;</span>
-<div class="rev_header">
-  <h2>Remove Department</h2>
-<form class="" id="rev_form" action="../private/userRegistration.php" method="post">
-  <label for="selected_dep">Select Department</label>
-<select id="selected_dep" class="select_dep" name="">
-<?php loadDepartments(); ?>
-</select>
-<button class="confirm_before" type="button" name="button">Remove department</button>
-<input class="remove_button" type="button" value="Confirm deletion">
-</form>
-</div>
-</div>
-<!---->
 
 <!--Add leave type-->
 <div class="leave_popup">
@@ -176,12 +147,13 @@ $admin_info = get_admin_id();
 <div class="occupation_popup">
 <span class="close_occupation">&times;</span>
 <div class="occupation_content">
-  <h2>Remove Department</h2>
+  <h2>Add occupation</h2>
 <form class="" id="rev_form" action="../private/userRegistration.php" method="post">
   <label for="select_occ_dep">Select Department</label>
 <select id="select_occ_dep" class="select_occu_dep" name="">
 <?php loadDepartments(); ?>
 </select>
+<input class="occupationName" type="text" name="occupation_name" placeholder="occupation name">
 <button class="confirm_before_occu" type="button" name="button">Add occupation</button>
 <input class="create_occupation" type="button" value="Confirm occupation">
 </form>
@@ -233,11 +205,67 @@ $admin_info = get_admin_id();
 
 </div>
 
+<!--Remove department popup form-->
+<div id="popUpWindow" class="delete_department">
+  <div>
+<span class="close_delete_dep">&times;</span>
+</div>
+<div class="content">
+
+<div class="rev_header">
+  <h2>Remove Department</h2>
+<form class="my_dep" id="rem_d_form" action="../private/userRegistration.php" method="post">
+<select class="select_dep" type="text" name="deleteDep" placeholder="Department name" required = "required" >
+  <?php loadDepartments(); ?>
+</select>
+<input class="remove_button" type="button" value="Remove department">
+</form>
+</div>
+
+</div>
+
+</div>
+
+<!--Remove employee-->
+<div class="remove_employee_popup">
+<span class="close_remove_employee">&times;</span>
+<div class="remove_employee_content">
+  <h2>Remove employee</h2>
+<form class="" id="rev_emp_form" action="../private/userRegistration.php" method="post">
+  <label for="select_emp">Select employee</label>
+<select id="select_emp" class="select_emp_rev" name="employee_name_rem">
+<?php loadEmployeeId() ?>
+</select>
+<input class="rem_emp" type="button" value="Remove Employee">
+</form>
+</div>
+</div>
+<!---->
+
 <!--Leave request/response-->
 <div class="leave_response_r">
   <div>
 <span class="leave_responseClose">&times;</span>
 </div>
+<div class="response_heading">
+<h2>Employee Leave requests</h2>
+</div>
+<div class="coloums_head">
+<div class="emp_id">
+Employee id
+</div>
+<div class="leaveType">
+Leave Type
+</div>
+<div class="description_data">
+Due date
+</div>
+<div class="approval_buttons">
+Approval
+</div>
+</div>
+
+<?php show_sent_requests(); ?>
 
 </div>
 <!---->

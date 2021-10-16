@@ -151,6 +151,11 @@ function is_ajax_request_5() {
     $_SERVER['HTTP_X_REQUESTED_WITH'] == 'updateAccess';
 }
 
+function is_ajax_request_9() {
+  return isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
+    $_SERVER['HTTP_X_REQUESTED_WITH'] == 'ajaxOccupation';
+}
+
 if(is_ajax_request2()){
   $department = $_POST['myDepartment'];
   $crud->insertIntoDepartments($department);
@@ -168,7 +173,7 @@ if(is_ajax_request_4()){
   $reason = $_POST['reason'];
   $status = 0;
   $emp_id = getUserId();
-  $count = $crud->countLeaves();
+  $count = $crud->countLeaves($emp_id['employee_id']);
 
   if($count > 0)
   {
@@ -188,6 +193,12 @@ if(is_ajax_request_5()){
   $employee_id  = getUserId();
   $crud->update_access($access_type, $employee_id['employee_id']);
 }
+
+if(is_ajax_request_9()){
+  $occupation   = $_POST['occupation_name'];
+  $crud->insert_into_emp_occupation($occupation);
+}
+
 
     if(is_ajax_request()) {
       $name       = $_POST['name'];

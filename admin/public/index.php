@@ -1,5 +1,12 @@
 <?php
 require_once("header.php");
+
+if(isset($_GET['leaveId'])){
+
+$leaveId     = $_GET['leaveId'];
+$leaveStatus = $_GET['status'];
+send_leave_response($leaveId, $leaveStatus);
+}
  ?>
 
  <h2 class="secondHeading">Employees</h2>

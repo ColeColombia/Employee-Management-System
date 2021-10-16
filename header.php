@@ -38,16 +38,11 @@ $user_id = getUserId();
   <?php
   $access = get_access_type();
 
-  if($access == "Low"){
+  if(checkIdenticalInput($access, "Low")){
     show_admin_low();
   }
 
-  else if ($access == "Medium") {
-    show_admin_low();
-    show_admin_medium();
-  }
-
-  else if($access == "High"){
+  else if (checkIdenticalInput($access, "Medium")) {
     show_admin_low();
     show_admin_medium();
   }
@@ -70,14 +65,7 @@ $user_id = getUserId();
   </div>
 
   <?php if($access == "Medium") show_admin_search(); ?>
-  <div id="notification" class="notify">
-  <img src="assets/images/notifications_black_24dp.svg">
 
-  <div class="notificationCounter">
-
-  </div>
-
-  </div>
 </div>
 
 </div>
@@ -152,7 +140,9 @@ load_occupations();
 <option value="Male">Male</option>
 <option value="Female">Female</option>
 </select>
-<input class="employee-occupation" type="text" name="occupation" placeholder="occupation" required = "required">
+<select class="employee-occupation" type="text" name="occupation" placeholder="occupation" required = "required" placeholder="occupations">
+  <?php show_occupations(); ?>
+</select>
 <input class="employee-id" type="text" name="identity" placeholder="identity number" required = "required">
 <input class="employee-tax" type="text" name="taxNumber" placeholder="tax number" required = "required">
 <input class="employee-salary" type="text" name="salary" placeholder="salary" required = "required">

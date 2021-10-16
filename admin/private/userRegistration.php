@@ -150,6 +150,16 @@ function is_ajax_request_6() {
     $_SERVER['HTTP_X_REQUESTED_WITH'] == 'updateAdminPic';
 }
 
+function is_ajax_request_11() {
+  return isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
+    $_SERVER['HTTP_X_REQUESTED_WITH'] == 'deleteDep';
+}
+
+function is_ajax_request_12() {
+  return isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
+    $_SERVER['HTTP_X_REQUESTED_WITH'] == 'delete_employee';
+}
+
 if(is_ajax_request_3()){
   $leave_name = $_POST['leave_type'];
   $crud = new Crud();
@@ -159,6 +169,16 @@ if(is_ajax_request_3()){
 if(is_ajax_request2()){
   $department = $_POST['myDepartment'];
   $crud->insertIntoDepartments($department);
+}
+
+if(is_ajax_request_11()){
+  $department = $_POST['deleteDep'];
+  $crud->deleteDepartMent($department);
+}
+
+if(is_ajax_request_12()){
+  $employee = $_POST['employee_name_rem'];
+  $crud->deleteEmployee($employee);
 }
 
 if(is_ajax_request_5()){

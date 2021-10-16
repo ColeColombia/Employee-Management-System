@@ -28,7 +28,7 @@ function checkIdenticalInput($input, $input2)
   $input  = sanitizeString($input);
   $input2 = sanitizeString($input2);
 
-  if (strcmp($input, $input2) == 0) {
+  if (strcasecmp($input, $input2) == 0) {
     return true;
   }
   else{
@@ -119,6 +119,17 @@ function loadDepartments(){
   echo "<option>" . $row['department_name'] . "</option>";
   }
 
+}
+
+function loadEmployeeId()
+{
+  $pdo = connect();
+  $stmt = $pdo->query("SELECT * FROM worker");
+  $id = $stmt->fetchAll();
+
+  foreach ($id as $key => $row) {
+  echo "<option>" . $row['identity_num'] . "</option>";
+  }
 }
 
 function showEmployees(){
@@ -241,6 +252,59 @@ function get_admin_id(){
   $admin_id  = $stmt->fetch();
 
   return $admin_id;
+}
+
+function show_sent_requests()
+{
+  $pdo = connect();
+  $stmt = $pdo->query("SELECT * FROM emp_leave");
+  $stmt->execute();
+  $result = $stmt->fetchAll();
+
+  foreach ($result as $key => $value) {
+
+    $status = $value['leave_status'];
+
+    if($status == 0)
+    {
+      echo "<div class='response_data'>
+        <div class='emp_id_data'>
+        ".$value['employee_id']."
+        </div>
+        <div class='type_of_leave'>
+      ".$value['leave_type']."
+        </div>
+        <div class='leave_description'>
+        ".$value['leave_date']."
+        </div>
+        <div class='approval_buttons'>
+        <a href='../public/index.php?leaveId=".$value['leave_id']."&status=1'><button class='accept_leave'>accept</button></a>
+        <a href='../public/index.php?leaveId=".$value['leave_id']."&status=2'><button class='decline_leave'>decline</button></a>
+        </div>
+      </div>";
+    }
+
+  }
+}
+
+function send_leave_response($leaveId, $status)
+{
+  $pdo = connect();
+
+  if($status == 1)
+  {
+    $sql = 'UPDATE emp_leave SET leave_status=? WHERE leave_id=?';
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$status, $leaveId]);
+  }
+
+  else if($status == 2)
+  {
+    $sql = 'UPDATE emp_leave SET leave_status=? WHERE leave_id=?';
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$status, $leaveId]);
+  }
+
 }
 
 ?>
